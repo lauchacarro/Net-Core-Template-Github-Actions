@@ -1,10 +1,10 @@
-name: .NET Core Build and Deploy
+name: .NET Core Build
  
 on: [push]
 
 jobs:
-  deploy:
-    name: Deploy
+  build:
+    name: build
     runs-on: ubuntu-latest
     
     steps:
