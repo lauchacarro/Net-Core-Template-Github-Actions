@@ -14,6 +14,6 @@ jobs:
       with:
         dotnet-version: '3.1.100'
         
-    - uses: lauchacarro/Net-Core-Template-Github-Actions@master
+    - uses: lauchacarro/netcore-action-template@master
       with:
         who-to-greet: 'world'
