@@ -4,11 +4,14 @@ const glob = require('@actions/glob');
 
 const main = async () => {
 
-    const patterns = ['**/*.csproj']
-    const globber = await glob.create(patterns.join('\n'))
+    const globber = await glob.create('**')
     const files = await globber.glob()
-
-    const projectPath = files[0];
+    files.forEach(element => {
+        console.log(element)
+    });
+    // const projectPath = files[0];
+    
+    return
     let args = ['run', '-c', 'Release', '--project', projectPath, '--'];
 
     var env = process.env;
