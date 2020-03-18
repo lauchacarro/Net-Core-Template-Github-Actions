@@ -6,13 +6,9 @@ const main = async () => {
 
     const globber = await glob.create(__dirname + '/**/*.csproj', { followSymbolicLinks: false })
     const files = await globber.glob()
-    console.log(__dirname)
-    files.forEach(element => {
-        console.log(element)
-    });
-    // const projectPath = files[0];
 
-    return
+    const projectPath = files[0];
+
     let args = ['run', '-c', 'Release', '--project', projectPath, '--'];
 
     var env = process.env;
