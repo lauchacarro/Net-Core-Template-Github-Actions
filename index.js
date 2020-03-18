@@ -4,11 +4,11 @@ const glob = require('@actions/glob');
 
 const main = async () => {
 
-    const patterns = ['**/*.csproj']
-    const globber = await glob.create(patterns.join('\n'))
+    const globber = await glob.create(__dirname + '/**/*.csproj', { followSymbolicLinks: false })
     const files = await globber.glob()
 
     const projectPath = files[0];
+
     let args = ['run', '-c', 'Release', '--project', projectPath, '--'];
 
     var env = process.env;
@@ -22,7 +22,7 @@ const main = async () => {
     });
 
 
-    
+
 
     await exec.exec('dotnet', args);
 };
